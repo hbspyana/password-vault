@@ -17,8 +17,7 @@ class PassVaultGUI:
         frame.pack()
         
         tk.Label(
-            frame, text='password_vault', font=('Arial Black', 28, 'bold', 'italic'), bg='#07052A', fg='#e9e9f0'
-            ).pack()
+            frame, text='password_vault', font=('Arial Black', 28, 'bold', 'italic')).pack()
 
         tk.Label(frame, text='Username:').pack()
         user_entry = tk.Entry(frame)
