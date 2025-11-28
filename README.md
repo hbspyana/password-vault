@@ -9,6 +9,8 @@ Log in or create an account after launching the application. Each account will h
 Enter your password and its corresponding site, then save it. You can also check the other passwords the user has saved and how many times the entered password has been leaked.
 
 # Complited functionality and approximate grades from your perception
+- After executing the selected function, the program does not terminate but returns to the menu to choose another function. Exiting is only done after a specific command.
+- All the functions apart the main are on the separate files
 - "logs.log" - Uses an external file to save data such as .txt, .csv, .json, images, sounds or any other types of data.
   - "data.db" - Your external file is an actual SQL or NoSQL database
 - "test_utils" - Make pytest or unittest for any 3 main functions of your project.
