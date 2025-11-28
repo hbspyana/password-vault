@@ -1,6 +1,5 @@
 # vault
 # api
-# ai
 # auth
 
 from db import save_password, load_passwords, save_user, get_user
@@ -50,9 +49,6 @@ class PassVault:
     def get_all(self):
         rows = load_passwords(self.username)
         return sorted(rows, key=lambda x: x[0])
-
-    def get_strength(self, key):
-        return sum(strength_generator(key))
 
 # check leaks (api)
 def check_pwned(password):
