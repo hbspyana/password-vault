@@ -29,11 +29,14 @@ Enter your password and its corresponding site, then save it. You can also check
 ## Project Structure
 password_vault/
 ├── .git/                 
-├── README.md             
-├── main.py                               
-├── utils.py
-├── logic.py
-├── db.py
+├── README.md   
+├── requirements.txt
+├── main.py 
+├── src/
+  ├── utils.py
+  ├── logic.py
+  ├── db.py
+  └── gui.py
 └── tests/                
     └── test_utils.py        
 
