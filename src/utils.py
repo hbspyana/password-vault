@@ -3,8 +3,8 @@ import re
 
 logging.basicConfig(
     filename='logs.log',
-    level='INFO', # log level. will log messages relating to INFO, WARNING, ERROR, CRITICAL
-    format='%(asctime)s - %(levelname)s - %(message)s' # log format. timestamp - log level - message
+    level='INFO', 
+    format='%(asctime)s - %(levelname)s - %(message)s'
     )
 
 def log_pass_saved(site, user):
