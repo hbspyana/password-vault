@@ -74,7 +74,7 @@ class PassVaultGUI:
 
             else:
                 messagebox.showwarning('Uh oh!',
-                    f'This password has been leaked {count} times!')
+                    f'This password has been leaked {count} time(s)!')
 
 
         def show_pass():
