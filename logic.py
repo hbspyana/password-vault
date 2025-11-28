@@ -1,6 +1,5 @@
 # vault
 # api
-# ai
 # auth
 
 from db import save_password, load_passwords, save_user, get_user
