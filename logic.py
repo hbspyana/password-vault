@@ -50,9 +50,6 @@ class PassVault:
         rows = load_passwords(self.username)
         return sorted(rows, key=lambda x: x[0])
 
-    def get_strength(self, key):
-        return sum(strength_generator(key))
-
 # check leaks (api)
 def check_pwned(password):
     sha1 = hashlib.sha1(password.encode()).hexdigest().upper()
