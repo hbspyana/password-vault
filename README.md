@@ -28,14 +28,12 @@ Enter your password and its corresponding site, then save it. You can also check
 password_vault/
 ├── .git/                 
 ├── README.md             
-├── main.py               
-├── src/                  
-│   ├── utils.py
-│   └── logic.py
-├── tests/                
-│   └── test_utils.py
-└── data/                 
-    └── .gitkeep          
+├── main.py                               
+├── utils.py
+├── logic.py
+├── db.py
+└── tests/                
+    └── test_utils.py        
 
 ## Team Members
 - GitHub: [@hbspyana](https://github.com/hbspyana)
