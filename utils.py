@@ -8,7 +8,6 @@ logging.basicConfig(
     )
 
 def log_pass_saved(site, user):
-    """Log only password-saving events."""
     logging.info(f'Password saved for "{site}" by {user}.')
 
 def log_user(user):
@@ -17,9 +16,5 @@ def log_user(user):
 def validate_username(name):
     return bool(re.fullmatch(r'[A-Za-z0-9]{3,20}', name))
 
-def validate_password(pwd):
-    return bool(re.fullmatch(r'.{5,}', pwd))
-
-def strength_generator(password):
-    for char in password:
-        yield 1
+def validate_password(key):
+    return bool(re.fullmatch(r'.{5,}', key))

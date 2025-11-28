@@ -17,7 +17,7 @@ class PassVaultGUI:
         frame.pack()
         
         tk.Label(
-            frame, text='_password_vault_', font=('Arial Black', 28, 'bold', 'italic'), bg='#07052A', fg='#e9e9f0'
+            frame, text='password_vault', font=('Arial Black', 28, 'bold', 'italic'), bg='#07052A', fg='#e9e9f0'
             ).pack()
 
         tk.Label(frame, text='Username:').pack()
@@ -53,23 +53,23 @@ class PassVaultGUI:
         site_entry.pack()
 
         tk.Label(win, text='Password:').pack()
-        pwd_entry = tk.Entry(win)
-        pwd_entry.pack()
+        key_entry = tk.Entry(win)
+        key_entry.pack()
 
-        def add_pwd():
+        def add_key():
             site = site_entry.get()
-            pwd = pwd_entry.get()
-            vault.add_password(site, pwd)
+            key = key_entry.get()
+            vault.add_password(site, key)
             messagebox.showinfo('Saved', 'Password stored.')
             
         def check_leak():
-            pwd = pwd_entry.get()
-            count = check_pwned(pwd)
+            key = key_entry.get()
+            count = check_pwned(key)
 
-            if count == -1:
+            if count == False:
                 messagebox.showerror('Error', 'Was not able to check.')
 
-            elif count == 0:
+            elif count == True:
                 messagebox.showinfo('Safe!', 'Password not found in any leaks.')
 
             else:
@@ -83,7 +83,7 @@ class PassVaultGUI:
             text = '\n'.join([f'{s}: {p}' for s, p in data])
             messagebox.showinfo('Stored Passwords', text)
 
-        tk.Button(win, text='Save Password', command=add_pwd).pack()
+        tk.Button(win, text='Save Password', command=add_key).pack()
         tk.Button(win, text='Show Saved Passwords', command=show_pass).pack()
         tk.Button(win, text='Check if Leaked', command=check_leak).pack()
 

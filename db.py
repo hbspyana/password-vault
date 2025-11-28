@@ -4,16 +4,11 @@ DB_NAME = 'data.db'
 
 def init_db():
     conn = sqlite3.connect(DB_NAME)
-    c = conn.cursor()
+    cursor = conn.cursor()
 
-    c.execute('''
-        CREATE TABLE IF NOT EXISTS users(
-            username TEXT PRIMARY KEY,
-            hashed TEXT
-        )
-    ''')
+    cursor.execute('CREATE TABLE IF NOT EXISTS users (username TEXT PRIMARY KEY, hashed TEXT)')
 
-    c.execute('''
+    cursor.execute('''
         CREATE TABLE IF NOT EXISTS passwords(
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             username TEXT,
@@ -27,31 +22,31 @@ def init_db():
 
 def save_user(username, hashed):
     conn = sqlite3.connect(DB_NAME)
-    c = conn.cursor()
-    c.execute('INSERT INTO users VALUES (?, ?)', (username, hashed))
+    cursor = conn.cursor()
+    cursor.execute('INSERT INTO users VALUES (?, ?)', (username, hashed))
     conn.commit()
     conn.close()
 
 def get_user(username):
     conn = sqlite3.connect(DB_NAME)
-    c = conn.cursor()
-    c.execute('SELECT * FROM users WHERE username=?', (username,))
-    row = c.fetchone()
+    cursor = conn.cursor()
+    cursor.execute('SELECT * FROM users WHERE username=?', (username,))
+    user = cursor.fetchone()
     conn.close()
-    return row
+    return user
 
-def save_password(username, site, pwd):
+def save_password(username, site, password):
     conn = sqlite3.connect(DB_NAME)
-    c = conn.cursor()
-    c.execute('INSERT INTO passwords (username, site, password) VALUES (?, ?, ?)',
-              (username, site, pwd))
+    cursor = conn.cursor()
+    cursor.execute('INSERT INTO passwords (username, site, password) VALUES (?, ?, ?)',
+                   (username, site, password))
     conn.commit()
     conn.close()
 
 def load_passwords(username):
     conn = sqlite3.connect(DB_NAME)
-    c = conn.cursor()
-    c.execute('SELECT site, password FROM passwords WHERE username=?', (username,))
-    rows = c.fetchall()
+    cursor = conn.cursor()
+    cursor.execute('SELECT site, password FROM passwords WHERE username=?', (username,))
+    all_passwords = cursor.fetchall()
     conn.close()
-    return rows
+    return all_passwords
