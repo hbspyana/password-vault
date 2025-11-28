@@ -1,5 +1,5 @@
-from db import init_db
-from gui import PassVaultGUI
+from src.db import init_db
+from src.gui import PassVaultGUI
 
 def main():
     init_db()
